@@ -21,7 +21,10 @@ public class App {
         System.out.println(body);
 
         // extrair os dados que interessam
-        List<Map<String, String>> listadeFilmes;
+        JsonParser parser = new JsonParser();
+        List<Map<String, String>> listadeFilmes = parser.parse(body);
+        System.out.println(listadeFilmes.size());
+
 
     }
 }
