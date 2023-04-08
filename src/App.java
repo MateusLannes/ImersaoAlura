@@ -11,6 +11,8 @@ import java.util.Map;
 public class App {
 
     public static void main(String[] args) throws Exception {
+
+
         // conexão http, buscando top 250 filmes
         String url = "https://imdb-api.com/en/API/Top250Movies/k_7kvp08yi";
         URI endereco = URI.create(url);
@@ -23,10 +25,6 @@ public class App {
         // extrair os dados que interessam
         JsonParser parser = new JsonParser();
         List<Map<String, String>> listadeFilmes = parser.parse(body);
-        
-
-
-
 
 
         
@@ -34,10 +32,10 @@ public class App {
         for (Map<String, String> filme : listadeFilmes) {
           
 
-            System.out.print("\033[1m" + "titulo: " + "\033[0m");
-            System.out.println(filme.get("title"));
+            System.out.print("\033[1m" + "titulo: " + "\033[0m"); // texto "titulo" em negrito
+            System.out.println(filme.get("title")); 
 
-            System.out.print("\033[1m" + "Link Imagem: " + "\033[0m");
+            System.out.print("\033[1m" + "Link Imagem: " + "\033[0m"); // texto "Link Imagem" em negrito
             System.out.println( "\033[48;5;0m\033[38;5;15m" + filme.get("image") + "\033[0m");
 
 
@@ -45,7 +43,8 @@ public class App {
             String[] partes = numeroString.split("\\."); // separa o ponto do numero float
             int numeroInteiro = Integer.parseInt(partes[0]); // converte a parte inteira para um número inteiro
 
-            System.out.println("\u001B[45m" + "Classificação: "  + filme.get("imDbRating")+ "\u001B[0m");
+            System.out.println("\u001B[45m" + "Classificação: "  + filme.get("imDbRating")+ "\u001B[0m"); // link da imagem com fundo preto
+            
             for (int i = 0; i < numeroInteiro; i++) { // imprime a nota usando estrelas
                 System.out.print("\u2B50 ");
             }
