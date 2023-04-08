@@ -33,7 +33,11 @@ public class App {
         //Exibir e manipular os dados
         for (Map<String, String> filme : listadeFilmes) {
           
+
+            System.out.print("\033[1m" + "titulo: " + "\033[0m");
             System.out.println(filme.get("title"));
+
+            System.out.print("\033[1m" + "Link Imagem: " + "\033[0m");
             System.out.println(filme.get("image"));
 
 
@@ -41,9 +45,12 @@ public class App {
             String[] partes = numeroString.split("\\."); // separa o ponto do numero float
             int numeroInteiro = Integer.parseInt(partes[0]); // converte a parte inteira para um número inteiro
 
+            System.out.println("Classificação: " + filme.get("imDbRating"));
             for (int i = 0; i < numeroInteiro; i++) { // imprime a nota usando estrelas
                 System.out.print("\u2B50 ");
             }
+            System.out.println();
+            System.out.println();
         }
         
     }
