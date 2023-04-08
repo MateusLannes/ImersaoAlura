@@ -38,14 +38,14 @@ public class App {
             System.out.println(filme.get("title"));
 
             System.out.print("\033[1m" + "Link Imagem: " + "\033[0m");
-            System.out.println(filme.get("image"));
+            System.out.println( "\033[48;5;0m\033[38;5;15m" + filme.get("image") + "\033[0m");
 
 
             String numeroString = filme.get("imDbRating");
             String[] partes = numeroString.split("\\."); // separa o ponto do numero float
             int numeroInteiro = Integer.parseInt(partes[0]); // converte a parte inteira para um número inteiro
 
-            System.out.println("Classificação: " + filme.get("imDbRating"));
+            System.out.println("\u001B[45m" + "Classificação: "  + filme.get("imDbRating")+ "\u001B[0m");
             for (int i = 0; i < numeroInteiro; i++) { // imprime a nota usando estrelas
                 System.out.print("\u2B50 ");
             }
