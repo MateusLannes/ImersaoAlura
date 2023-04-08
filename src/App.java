@@ -8,6 +8,11 @@ import java.net.http.HttpResponse.BodyHandlers;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * @author Mateus Lannes Cunha
+ * data    01/04/2023
+ */
+
 public class App {
 
     public static void main(String[] args) throws Exception {
@@ -44,7 +49,7 @@ public class App {
             int numeroInteiro = Integer.parseInt(partes[0]); // converte a parte inteira para um número inteiro
 
             System.out.println("\u001B[45m" + "Classificação: "  + filme.get("imDbRating")+ "\u001B[0m"); // link da imagem com fundo preto
-            
+
             for (int i = 0; i < numeroInteiro; i++) { // imprime a nota usando estrelas
                 System.out.print("\u2B50 ");
             }

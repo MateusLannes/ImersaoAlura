@@ -3,7 +3,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
-import java.util.regex.Pattern;//fffffffffffffffffeeee
+import java.util.regex.Pattern;
+
+
+/**
+ * @author Mateus Lannes Cunha
+ * data    03/04/2023
+ */
+
 
 public class JsonParser {
     
