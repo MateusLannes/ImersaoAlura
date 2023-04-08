@@ -25,12 +25,26 @@ public class App {
         List<Map<String, String>> listadeFilmes = parser.parse(body);
         
 
+
+
+
+
+        
         //Exibir e manipular os dados
         for (Map<String, String> filme : listadeFilmes) {
+          
             System.out.println(filme.get("title"));
             System.out.println(filme.get("image"));
-            System.out.println(filme.get("imDbRating"));
-            System.out.println();
+
+
+            String numeroString = filme.get("imDbRating");
+            String[] partes = numeroString.split("\\."); // separa o ponto do numero float
+            int numeroInteiro = Integer.parseInt(partes[0]); // converte a parte inteira para um número inteiro
+
+            for (int i = 0; i < numeroInteiro; i++) { // imprime a nota usando estrelas
+                System.out.print("\u2B50 ");
+            }
         }
+        
     }
 }
