@@ -1,6 +1,8 @@
 import static java.net.http.HttpRequest.newBuilder;
 
+import java.io.InputStream;
 import java.net.URI;
+import java.net.URL;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
@@ -35,10 +37,24 @@ public class App {
         
         //Exibir e manipular os dados
         for (Map<String, String> filme : listadeFilmes) {
-          
+
+            String urlImagem = filme.get("image");
+
 
             System.out.print("\033[1m" + "titulo: " + "\033[0m"); // texto "titulo" em negrito
-            System.out.println(filme.get("title")); 
+            String titulo = filme.get("title"); 
+
+
+            InputStream inputStream = new URL(urlImagem).openStream();
+
+            String nomeArquivo = titulo + ".png";
+
+            var geradora = new GeradoraDeFigurinha();
+
+
+            geradora.cria(inputStream, nomeArquivo);
+
+
 
             System.out.print("\033[1m" + "Link Imagem: " + "\033[0m"); // texto "Link Imagem" em negrito
             System.out.println( "\033[48;5;0m\033[38;5;15m" + filme.get("image") + "\033[0m");
